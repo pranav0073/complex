@@ -11,12 +11,12 @@ script:
 after_success:
   - docker build -t pranav0073/multi-client ./client
   - docker build -t pranav0073/multi-nginx ./nginx
-  - docker build -t pranav0073/server ./server
-  - docker build -t pranav0073/worker ./worker
+  - docker build -t pranav0073/multi-server ./server
+  - docker build -t pranav0073/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push pranav0073/multi-client
   - docker push pranav0073/multi-nginx
-  - docker push pranav0073/server
-  - docker push pranav0073/worker
+  - docker push pranav0073/multi-server
+  - docker push pranav0073/multi-worker
